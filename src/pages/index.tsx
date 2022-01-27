@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import React from 'react'
 
-import { Hello } from '~/src/components/Hello'
+import { RichTextEditor } from '../components/RichTextEditor'
 
 const Page: NextPage = () => {
-  return <Hello />
+  return <RichTextEditor />
 }
 
 export default Page
