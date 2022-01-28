@@ -1,16 +1,16 @@
-import { EditorState, PluginKey, Plugin } from 'prosemirror-state'
+import { PluginKey, Plugin } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 import { useEffect, useRef } from 'react'
+import { RichTextEditorState } from '../RichTextEditor/RichTextEditorState'
 
-import { schema } from '../richTextEditor/schema'
-
-type RichTextEditorProps = {
-  test?: string
+export type RichTextEditorProps = {
+  initDoc: HTMLElement | null
+  mountedDom?: HTMLDivElement
 }
 
 const reactPropsKey = new PluginKey<RichTextEditorProps>('reactProps')
 
-const reactProps = (initialProps: RichTextEditorProps) => {
+export const reactProps = (initialProps: RichTextEditorProps) => {
   return new Plugin({
     key: reactPropsKey,
     state: {
@@ -23,15 +23,17 @@ const reactProps = (initialProps: RichTextEditorProps) => {
 }
 
 export const RichTextEditor: React.FC<RichTextEditorProps> = (props) => {
-  const viewHost = useRef()
+  const viewHost = useRef<HTMLDivElement>(null)
   const view = useRef<EditorView>()
 
   useEffect(() => {
-    const state = EditorState.create({
-      schema,
-      plugins: [reactProps(props)],
-    })
-    view.current = new EditorView(viewHost.current, { state })
+    if (viewHost.current) {
+      const state = RichTextEditorState({
+        ...props,
+        mountedDom: viewHost.current,
+      })
+      view.current = new EditorView(viewHost.current, { state })
+    }
     return () => view.current && view.current.destroy()
   }, [props])
 
