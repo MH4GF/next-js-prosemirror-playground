@@ -2822,10 +2822,10 @@ prosemirror-keymap@^1.0.0:
     prosemirror-state "^1.0.0"
     w3c-keyname "^2.2.0"
 
-prosemirror-menu@^1.0.0, prosemirror-menu@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/prosemirror-menu/-/prosemirror-menu-1.1.4.tgz#a845ae0e14ce1f92dd39d7f23caa6063265cd98c"
-  integrity sha512-2ROsji/X9ciDnVSRvSTqFygI34GEdHfQSsK4zBKjPxSEroeiHHcdRMS1ofNIf2zM0Vpp5/YqfpxynElymQkqzg==
+prosemirror-menu@^1.0.0, prosemirror-menu@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-menu/-/prosemirror-menu-1.2.1.tgz#94d99a8547b7ba5680c20e9c497ce19846ce3b2c"
+  integrity sha512-sBirXxVfHalZO4f1ZS63WzewINK4182+7dOmoMeBkqYO8wqMBvBS7wQuwVOHnkMWPEh0+N0LJ856KYUN+vFkmQ==
   dependencies:
     crelt "^1.0.0"
     prosemirror-commands "^1.0.0"
